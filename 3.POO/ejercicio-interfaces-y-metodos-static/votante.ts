@@ -1,7 +1,6 @@
-import Ordenable from "./ordenable";
 import Persona from "./persona";
 
-export default class Votante extends Persona implements Ordenable {
+export default class Votante extends Persona {
     private nroOrden: number;
     private mesa: string;
     private voto: boolean;
@@ -20,12 +19,11 @@ export default class Votante extends Persona implements Ordenable {
     public isVoto(): boolean { return this.voto; }
     public setVoto(voto: boolean): void { this.voto = voto; }
 
-    public comparador(persona1: Persona, persona2: Persona): number {
-    //por nombre alfabetico de menor a mayor
-        return 1;
-        return -1;
+    public static comparador(persona1: Persona, persona2: Persona): number {
+        //por nombre alfabetico de menor a mayor
+        if (persona1.getNombre()>persona2.getNombre())
+            return -1;
+        else
+            return 1;
     }
-    public ordenar(listaPersonas: Persona[]) {
-        //retornar la lista ordenada por el arreglo
-    }   
 }

@@ -1,7 +1,6 @@
-import Ordenable from "./ordenable";
 import Persona from "./persona";
 
-export default class Alumno extends Persona implements Ordenable {
+export default class Alumno extends Persona {
     private fila:number;
     private posicion:number;
     
@@ -16,12 +15,17 @@ export default class Alumno extends Persona implements Ordenable {
     public getPosicion(): number { return this.posicion; }
     public setPosicion(posicion: number): void { this.posicion = posicion; }
 
-    public comparador(persona1: Persona, persona2: Persona): number {
-    //por altura de menor a mayor
-        return 1;
-        return -1;
+    public static comparador(persona1: Persona, persona2: Persona): number {
+        //por edad y altura de menor a mayor
+        if (persona1.getEdad() > persona2.getEdad())
+            return -1
+        else
+            if (persona1.getEdad() < persona2.getEdad())
+                return 1
+            else
+                if (persona1.getAltura() > persona2.getAltura())
+                    return -1;
+                else
+                    return 1;
     }
-    public ordenar(listaPersonas: Persona[]) {
-    //retornar la lista ordenada por el arreglo
-    }   
 }

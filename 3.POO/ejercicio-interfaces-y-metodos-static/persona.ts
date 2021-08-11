@@ -1,3 +1,8 @@
+import Alumno from "./alumno";
+import Espectador from "./espectador";
+import Tripulante from "./tripulante";
+import Votante from "./Votante";
+
 export default class Persona {
     private dni:number;
     private nombre:string;
@@ -23,4 +28,7 @@ export default class Persona {
     public setAltura(altura: number): void { this.altura = altura; }
     public getPeso(): number { return this.peso; }
     public setPeso(peso: number): void { this.peso = peso; }
+    public mostrar(): string { 
+        return `Persona { D: ${this.dni}, N: ${this.nombre}, E: ${this.edad}, A: ${this.altura}, P: ${this,this.peso}}` 
+    }
 }
