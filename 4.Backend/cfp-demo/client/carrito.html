@@ -8,10 +8,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
     />
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
     <title>CFL 2021</title>
   </head>
-  <body class="be">
+  <body class="">
     <div class="ui stackable menu">
       <div class="item">CFL 2021</div>
       <a href="index.html" class="item">Inicio</a>
@@ -19,5 +19,22 @@
       <a href="backend.html" class="item">Backend</a>
       <a href="carrito.html" class="item">Carrito</a>
     </div>
+
+    <h1>Carrito</h1>
+    <p>Ejemplo de arreglo de objetos en JS.</p>
+    <input type="text" name="" value="" id="producto" />
+    <input type="text" name="" value="" id="precio" />
+    <button type="button" id="btnAgregar">Agregar</button>
+    <button type="button" id="btnTotal">Sumar</button>
+    <table>
+      <thead>
+        <td>Producto</td>
+        <td>Precio</td>
+      </thead>
+      <tbody id="tblCompras"></tbody>
+    </table>
+    <div id="total"></div>
+
+    <script src="js/carrito.js"></script>
   </body>
 </html>
