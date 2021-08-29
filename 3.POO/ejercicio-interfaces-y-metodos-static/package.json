@@ -1,0 +1,14 @@
+{
+  "name": "unificado",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cls && tsc index.ts && node index.js"
+  },
+  "author": "MI",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.4.12"
+  }
+}
