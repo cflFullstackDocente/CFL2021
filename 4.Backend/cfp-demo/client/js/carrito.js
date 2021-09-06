@@ -7,21 +7,8 @@ let compras = [];
 load();
 
 async function load() {
-  /*     
-  // Sin validar el status de la respuesta
-  let response = await fetch('mock.json');
-  //   console.log(response)
-  let json = await response.json();
-  //   console.log(json)
-  compras = json.compras;
-  //   console.log(compras);
-  mostrarTablaCompras();
-  */
-
-  // Validando el status de la respuesta y manejando errores
   let table = document.querySelector('#tblCompras');
   try {
-    // throw new Error('internal server error'); // forzar error
     let response = await fetch('mock.json');
     if (response.ok) {
       let json = await response.json();
