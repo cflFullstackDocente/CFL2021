@@ -48,16 +48,6 @@ export class ProductoService {
     return producto;
   }
 
-  // private getProductosPorNombre(nombre: string): Producto[] {
-  //   let productos = [];
-  //   for (let i = 0; i < this.listaProductos.length; i++) {
-  //     if (this.listaProductos[i].getNombre().includes(nombre)) {
-  //       productos.push(this.listaProductos[i]);
-  //     }
-  //   }
-  //   return productos;
-  // }
-
   private loadProductos(): void {
     let archivo = fs.readFileSync('productos.csv', 'utf8');
 
