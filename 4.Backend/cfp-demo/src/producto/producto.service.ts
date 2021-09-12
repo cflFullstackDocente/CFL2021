@@ -10,8 +10,31 @@ export class ProductoService {
     this.loadProductos();
   }
 
-  getProductos(): Producto[] {
-    return this.listaProductos;
+  getProductos(
+    nombre?: string,
+    limite?: number,
+    pagina: number = 1,
+  ): Producto[] {
+    if (!nombre && !limite) {
+      return this.listaProductos;
+    }
+
+    let productos = this.listaProductos;
+
+    if (nombre) {
+      // filtrar todos los productos que contienen el "nombre" recibido por parametro
+      productos = this.listaProductos.filter((producto) =>
+        producto.getNombre().includes(nombre),
+      );
+    }
+
+    if (limite) {
+      // obtener solo la porcion de los elementos segun la pagina y limites solicitados
+      let inicio: number = (pagina - 1) * limite;
+      productos = productos.splice(inicio, limite);
+    }
+
+    return productos;
   }
 
   public getProducto(id: number): Producto {
@@ -24,6 +47,16 @@ export class ProductoService {
     }
     return producto;
   }
+
+  // private getProductosPorNombre(nombre: string): Producto[] {
+  //   let productos = [];
+  //   for (let i = 0; i < this.listaProductos.length; i++) {
+  //     if (this.listaProductos[i].getNombre().includes(nombre)) {
+  //       productos.push(this.listaProductos[i]);
+  //     }
+  //   }
+  //   return productos;
+  // }
 
   private loadProductos(): void {
     let archivo = fs.readFileSync('productos.csv', 'utf8');
