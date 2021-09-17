@@ -4,6 +4,24 @@ let btnTotal = document.querySelector('#btnTotal');
 btnTotal.addEventListener('click', sumar);
 let compras = [];
 
+load();
+
+async function load() {
+  let table = document.querySelector('#tblCompras');
+  try {
+    let response = await fetch('mock.json');
+    if (response.ok) {
+      let json = await response.json();
+      compras = json.compras;
+      mostrarTablaCompras();
+    } else {
+      table.innerHTML = '<h1>Error - Failed URL!</h1>';
+    }
+  } catch (error) {
+    table.innerHTML = `<h1>Connection error: ${error.message}</h1>`;
+  }
+}
+
 function agregar() {
   console.log('Funcion Agregar');
   let producto = document.querySelector('#producto').value;
