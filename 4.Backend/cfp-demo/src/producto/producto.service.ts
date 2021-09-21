@@ -19,7 +19,7 @@ export class ProductoService {
       return this.listaProductos;
     }
 
-    let productos = this.listaProductos;
+    let productos = Array.from(this.listaProductos);
 
     if (nombre) {
       // filtrar todos los productos que contienen el "nombre" recibido por parametro
